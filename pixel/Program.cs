@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -33,9 +34,9 @@ namespace pixel
         {
             try
             {
-                MailAddress m = new MailAddress(emailaddress);
-
-                return true;
+                Regex rx = new Regex(
+            @"^[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z{|}~])*@[a-zA-Z](-?[a-zA-Z0-9])*(\.[a-zA-Z](-?[a-zA-Z0-9])*)+$");
+                return rx.IsMatch(emailaddress);
             }
             catch (FormatException)
             {
