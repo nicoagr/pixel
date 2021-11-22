@@ -225,17 +225,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="menu.Designer.cs">
+      <DependentUpon>menu.cs</DependentUpon>
     </Compile>
     <Compile Include="consultar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="consultar.Designer.cs">
       <DependentUpon>consultar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="configurador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="configurador.Designer.cs">
+      <DependentUpon>configurador.cs</DependentUpon>
     </Compile>
     <Compile Include="generar.cs">
       <SubType>Form</SubType>
@@ -245,8 +251,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="configurador.resx">
+      <DependentUpon>configurador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menu.resx">
+      <DependentUpon>menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="consultar.resx">
       <DependentUpon>consultar.cs</DependentUpon>

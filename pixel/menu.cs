@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace pixel
 {
-    public partial class Form1 : Form
+    public partial class menu : Form
     {
-        public Form1()
+        public menu()
         {
             InitializeComponent();
         }

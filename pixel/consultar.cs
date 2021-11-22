@@ -34,7 +34,7 @@ namespace pixel
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 f = new Form1();
+            menu f = new menu();
             this.Visible = false;
             f.ShowDialog();
             this.Close();

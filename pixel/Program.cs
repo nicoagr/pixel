@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Runtime.InteropServices;
@@ -27,7 +28,14 @@ namespace pixel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            if (File.Exists("config.ini"))
+            {
+                Application.Run(new menu());
+            }
+            else
+            {
+                Application.Run(new configurador());
+            }
         }
 
         public static bool emailValido(string emailaddress)
