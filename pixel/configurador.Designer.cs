@@ -85,7 +85,7 @@ namespace pixel
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(238, 231);
+            this.textBox1.Location = new System.Drawing.Point(240, 231);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(247, 30);
             this.textBox1.TabIndex = 3;
@@ -134,7 +134,7 @@ namespace pixel
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(238, 280);
+            this.textBox2.Location = new System.Drawing.Point(240, 280);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(247, 30);
             this.textBox2.TabIndex = 8;
@@ -143,7 +143,7 @@ namespace pixel
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(238, 322);
+            this.textBox3.Location = new System.Drawing.Point(240, 322);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(247, 30);
             this.textBox3.TabIndex = 9;
@@ -152,11 +152,12 @@ namespace pixel
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(238, 361);
+            this.textBox4.Location = new System.Drawing.Point(240, 361);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(247, 30);
             this.textBox4.TabIndex = 10;
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox4.UseSystemPasswordChar = true;
             // 
             // label8
             // 
@@ -172,7 +173,7 @@ namespace pixel
             // 
             this.textBox5.Enabled = false;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(238, 399);
+            this.textBox5.Location = new System.Drawing.Point(240, 399);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(247, 30);
             this.textBox5.TabIndex = 12;
@@ -189,6 +190,7 @@ namespace pixel
             this.button1.TabIndex = 13;
             this.button1.Text = "Conectar MySQL";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label9
             // 
@@ -252,6 +254,7 @@ namespace pixel
             this.button3.TabIndex = 19;
             this.button3.Text = "Guardar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // configurador
             // 
