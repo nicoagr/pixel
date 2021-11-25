@@ -3,12 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using agrapi;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace pixel
 {
@@ -71,8 +73,41 @@ namespace pixel
                 }
                 // Probar Mysql - Comprobar Tablas
                 temp.Close();
+                try
+                {
+                    // Ver a ver si estan creadas las tablas correctamente
+                    API.ComandodbConConexion("SELECT id, ip, fechaleido, email, ciudad, pais, region FROM pixel", cnstring);
+                }
+                catch (Exception excepcionrara)
+                {
+                    // Si no, crearlas
+                    try
+                    {
+                        API.ComandodbConConexion("CREATE TABLE pixel (" +
+                          "id int(11) NOT NULL," +
+                          "ip varchar(255) DEFAULT NULL," +
+                          "pais mediumtext NOT NULL," +
+                          "region mediumtext NOT NULL," +
+                          "ciudad mediumtext NOT NULL," +
+                          "email varchar(255) NOT NULL," +
+                          "fechaleido varchar(255) DEFAULT NULL" +
+                        ")", cnstring);
+                        API.ComandodbConConexion("ALTER TABLE `pixel` ADD PRIMARY KEY(`id`); COMMIT;", cnstring);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ha habido un fallo al la hora de crear las tablas en la base de datos!" + Environment.NewLine + ex.Message, "[Pixel] - Error");
+                        button1.Visible = true;
+                        this.Cursor = Cursors.Default;
+                        break;
+                    }
+                }
 
                 // Guardar parte de la configuracion en el archivo config.ini
+                API.CrearArchivo("config.ini");
+                API.AgregarAArchivo("IMPORTANTE!! NO TOCAR NADA AQUI" + Environment.NewLine +
+                    textBox1.Text + Environment.NewLine  + textBox2.Text + Environment.NewLine +
+                     textBox3.Text + Environment.NewLine + textBox4.Text + Environment.NewLine, "config.ini");
 
                 // Final - Visibilidad
                 textBox1.Visible = false;
@@ -102,6 +137,24 @@ namespace pixel
 
                 break;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Abrir panel de seleccion de directorio
+            string dirParameter = "C:\\";
+            // Generar archivos para descargar
+            string dbuser = API.LeerLineaEspecificaArchivo("config.ini", 4);
+            string dbserver = API.LeerLineaEspecificaArchivo("config.ini", 2);
+            string dbname = API.LeerLineaEspecificaArchivo("config.ini", 3);
+            string dbpass = API.LeerLineaEspecificaArchivo("config.ini", 5);
+
+            FileStream fParameter = new FileStream(dirParameter, FileMode.Create, FileAccess.Write);
+            StreamWriter m_WriterParameter = new StreamWriter(fParameter);
+            m_WriterParameter.BaseStream.Seek(0, SeekOrigin.End);
+            m_WriterParameter.Write(texto.includePHP(dbuser, dbserver, dbpass, dbname));
+            m_WriterParameter.Flush();
+            m_WriterParameter.Close();
         }
     }
 }

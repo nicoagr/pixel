@@ -225,6 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.cs" />
+    <Compile Include="texto.cs" />
     <Compile Include="menu.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -21,8 +21,12 @@ namespace agrapi
 {
     class API
     {
-        // Esto hay que reemplazarlo por un configurador
-        internal static MySqlConnection conn = new MySqlConnection("Server=xxx;database=xxxx;userid=xxxxx;password=xxxxx;");
+        //internal static string dbuser = API.LeerLineaEspecificaArchivo("config.ini", 4);
+        //internal static string dbserver = API.LeerLineaEspecificaArchivo("config.ini", 2);
+        //internal static string dbname = API.LeerLineaEspecificaArchivo("config.ini", 3);
+        //internal static string dbpass = API.LeerLineaEspecificaArchivo("config.ini", 5);
+        //internal static MySqlConnection conn = new MySqlConnection("Server="+dbserver+";database="+dbname+";userid="+dbuser+";password="+dbpass+";");
+        internal static MySqlConnection conn = new MySqlConnection();
         public static string[] StringToArray(string input)
         {
             //string[] stringList = input.Split(separator.ToCharArray(),
@@ -148,20 +152,20 @@ namespace agrapi
 
         public static void Comandodb(string comando)
         {
-            
-            try
-            {
-
                 conn.Open();
                 MySqlCommand c = new MySqlCommand(comando, conn);
                 c.ExecuteNonQuery();
                 conn.Close();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "TPVabierto - Error MySql", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+        }
+        public static void ComandodbConConexion(string comando, string conexion)
+        {
+            MySqlConnection con = new MySqlConnection(conexion);
+            con.Open();
+            MySqlCommand c = new MySqlCommand(comando, con);
+            c.ExecuteNonQuery();
+            conn.Close();
+
+
         }
 
         public static string ComandodbConSalida(string comando)
