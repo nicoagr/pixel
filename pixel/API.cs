@@ -21,12 +21,22 @@ namespace agrapi
 {
     class API
     {
-        //internal static string dbuser = API.LeerLineaEspecificaArchivo("config.ini", 4);
-        //internal static string dbserver = API.LeerLineaEspecificaArchivo("config.ini", 2);
-        //internal static string dbname = API.LeerLineaEspecificaArchivo("config.ini", 3);
-        //internal static string dbpass = API.LeerLineaEspecificaArchivo("config.ini", 5);
-        //internal static MySqlConnection conn = new MySqlConnection("Server="+dbserver+";database="+dbname+";userid="+dbuser+";password="+dbpass+";");
-        internal static MySqlConnection conn = new MySqlConnection();
+        
+        internal static MySqlConnection conn = getConn();
+
+        internal static MySqlConnection getConn()
+        {
+            if (File.Exists("config.ini")) {
+                string dbuser = API.LeerLineaEspecificaArchivo("config.ini", 4);
+                string dbserver = API.LeerLineaEspecificaArchivo("config.ini", 2);
+                string dbname = API.LeerLineaEspecificaArchivo("config.ini", 3);
+                string dbpass = API.LeerLineaEspecificaArchivo("config.ini", 5);
+                MySqlConnection conn = new MySqlConnection("Server=" + dbserver + ";database=" + dbname + ";userid=" + dbuser + ";password=" + dbpass + ";");
+                return conn;
+            }
+            else return new MySqlConnection();
+        }
+
         public static string[] StringToArray(string input)
         {
             //string[] stringList = input.Split(separator.ToCharArray(),

@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using agrapi;
 using System.Net.Mail;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
@@ -28,7 +29,7 @@ namespace pixel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (File.Exists("config.ini"))
+            if (File.Exists("config.ini") && API.TotalLineas("config.ini") >= 6)
             {
                 Application.Run(new menu());
             }

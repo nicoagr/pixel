@@ -22,6 +22,14 @@ namespace pixel
             button1.Visible = true;
             button2.Visible = false;
             button3.Enabled = false;
+            if (File.Exists("config.ini") && API.TotalLineas("config.ini") == 5)
+            {
+                textBox1.Text = API.LeerLineaEspecificaArchivo("config.ini", 2);
+                textBox2.Text = API.LeerLineaEspecificaArchivo("config.ini", 3);
+                textBox3.Text = API.LeerLineaEspecificaArchivo("config.ini", 4);
+                textBox4.Text = API.LeerLineaEspecificaArchivo("config.ini", 5);
+                Application.DoEvents();
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -142,7 +150,7 @@ namespace pixel
         private void button2_Click(object sender, EventArgs e)
         {
             // Abrir panel de seleccion de directorio
-            string dirParameter = "C:\\";
+            string dirParameter = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "include.php";
             // Generar archivos para descargar
             string dbuser = API.LeerLineaEspecificaArchivo("config.ini", 4);
             string dbserver = API.LeerLineaEspecificaArchivo("config.ini", 2);
