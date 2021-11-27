@@ -49,6 +49,7 @@ namespace pixel
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -218,9 +219,9 @@ namespace pixel
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(30, 469);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(456, 29);
+            this.label11.Size = new System.Drawing.Size(579, 29);
             this.label11.TabIndex = 16;
-            this.label11.Text = "Paso 2: Introducir URL del Tracker: (.php)";
+            this.label11.Text = "Paso 2: Introducir URL del Tracker: (firmacorreo.php)";
             // 
             // textBox6
             // 
@@ -257,11 +258,23 @@ namespace pixel
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(136, 305);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(310, 32);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Archivos descargados!!";
+            this.label12.Visible = false;
+            // 
             // configurador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 577);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox6);
@@ -316,6 +329,7 @@ namespace pixel
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label12;
     }
 }
 

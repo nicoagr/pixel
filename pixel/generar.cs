@@ -23,7 +23,7 @@ namespace pixel
     public partial class generar : Form
     {
         // Esto hay que reemplazarlo por un configurador
-        public static string trackerurl = "www.path/to/tracker.php?t="; 
+        public static string trackerurl = API.LeerLineaEspecificaArchivo("config.ini", 7) +"?t="; 
         public generar()
         {
             InitializeComponent();
