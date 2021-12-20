@@ -7,7 +7,16 @@ Esta utilidad se comunicará con un servidor, que es el que estará "escuchando"
 
 Tiene un defecto, y es que el pixel no funcionará con ninguna dirección de correo alojada en los servidores de google (@gmail.com). Mas información [aquí](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/)
 ## Capturas de pantalla
-> Próximamente...
+![Menú Principal](https://i.imgur.com/roY3vFk.png)
+
+![Configurador](https://i.imgur.com/Ar4ZHLk.png)
+
+![Crear Pixel](https://i.imgur.com/4tn0KuB.png)
+
+![Ver Pixel Usado](https://i.imgur.com/rntfnwc.png)
+
+![Ver Pixel Sin Usar](https://i.imgur.com/JU1qpY9.png)
+
 ## Requerimientos
 Para poder hostear (y usar) una instancia de este proyecto, es necesario disponer de:
 > Un servidor web con php
@@ -25,8 +34,11 @@ Nos aparecerá la pantalla del configurador, en el que tendremos que introducir 
 Si todo ha ido bien, el programa ya estaría configurado y listo para funcionar. Si aparece algún error o algo inesperado que no puedas solucionar, no dudes en crear un issue en esta página de proyecto de github.
 ## Uso habitual
 <!> Aviso <!> Las confirmaciones de lectura enviadas a un correo electrónico alojado en los servidores de google resultarán en información errónea.
-> Próximamente...
+La configuración dependerá de el cliente de correo usado, pero en la mayoría de los casos, las instrucciones son las siguientes:
+> Generar un pixel, y copiar el código HTML generado.
+> Pegarlo abajo del todo en el e-mail que queramos enviar.
+> Podremos consultar el estado de nuestro e-mail en la pestaña "Ver Pixel", y ver si se ha abierto o no. También existe la posibilidad de eliminar un registro si éste no ha sido abierto 
 ## Descarga
-[Windows 7, 10, 11](https://github.com/nicoagr/pixel/releases/latest/download/pixel.exe)
+[[Windows 7, 10, 11]](https://github.com/nicoagr/pixel/releases/latest/download/pixel.exe)
 ### Legal
 *Este proyecto NO tiene una licencia "de código abierto". Para obtener más información sobre licencias de código abierto, haz click [aquí](https://opensource.org/faq). Si quieres saber qué significa que este proyecto no tenga una licencia "de código abierto", haz click [aquí](https://choosealicense.com/no-permission/)*
