@@ -36,7 +36,9 @@ Si todo ha ido bien, el programa ya estaría configurado y listo para funcionar.
 <!> Aviso <!> Las confirmaciones de lectura enviadas a un correo electrónico alojado en los servidores de google resultarán en información errónea.
 La configuración dependerá de el cliente de correo usado, pero en la mayoría de los casos, las instrucciones son las siguientes:
 > Generar un pixel, y copiar el código HTML generado.
+
 > Pegarlo abajo del todo en el e-mail que queramos enviar.
+
 > Podremos consultar el estado de nuestro e-mail en la pestaña "Ver Pixel", y ver si se ha abierto o no. También existe la posibilidad de eliminar un registro si éste no ha sido abierto 
 ## Descarga
 [[Windows 7, 10, 11]](https://github.com/nicoagr/pixel/releases/latest/download/pixel.exe)
