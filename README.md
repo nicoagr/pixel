@@ -19,11 +19,11 @@ Tiene un defecto, y es que el pixel no funcionará con ninguna dirección de cor
 
 ## Requerimientos
 Para poder hostear (y usar) una instancia de este proyecto, es necesario disponer de:
-> Un servidor web con php
+> Un servidor web con php (que recoja los datos)
 
-> Una base de datos MySQL
+> Una base de datos MySQL (que almacene los datos)
 
-> Un ordenador Windows
+> Un ordenador Windows (para visualizar los datos)
 
 > Un cliente de correo que permita la redacción en html
 ## Instalación
@@ -41,6 +41,6 @@ La configuración dependerá de el cliente de correo usado, pero en la mayoría 
 
 > Podremos consultar el estado de nuestro e-mail en la pestaña "Ver Pixel", y ver si se ha abierto o no. También existe la posibilidad de eliminar un registro si éste no ha sido abierto 
 ## Descarga
-[[Windows 7, 10, 11]](https://github.com/nicoagr/pixel/releases/latest/download/pixel.exe)
+[Ejecutable Todo-En-Uno [Windows 7, 10, 11]](https://github.com/nicoagr/pixel/releases/latest/download/pixel.exe)
 ### Legal
 *Este proyecto NO tiene una licencia "de código abierto". Para obtener más información sobre licencias de código abierto, haz click [aquí](https://opensource.org/faq). Si quieres saber qué significa que este proyecto no tenga una licencia "de código abierto", haz click [aquí](https://choosealicense.com/no-permission/)*
