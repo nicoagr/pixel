@@ -43,4 +43,4 @@ La configuración dependerá de el cliente de correo usado, pero en la mayoría 
 ## Descarga
 [Ejecutable Todo-En-Uno [Windows 7, 10, 11]](https://github.com/nicoagr/pixel/releases/latest/download/pixel.exe)
 ### Legal
-*Este proyecto NO tiene una licencia "de código abierto". Para obtener más información sobre licencias de código abierto, haz click [aquí](https://opensource.org/faq). Si quieres saber qué significa que este proyecto no tenga una licencia "de código abierto", haz click [aquí](https://choosealicense.com/no-permission/)*
+*Este proyecto se encuentra bajo la licencia "GNU General Public License v3.0". Para obtener más información sobre licencias de código abierto, haz click [aquí](https://opensource.org/faq). Si quieres saber qué significa que este proyecto tenga una licencia "GNU General Public License v3.0", haz click [aquí](https://choosealicense.com/licenses/gpl-3.0/)*
