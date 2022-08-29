@@ -79,6 +79,7 @@ namespace pixel
 
                 da.Fill(ds, "pixel");
                 dataGridView1.DataSource = ds.Tables[0];
+                anadirColumnaEliminar();
                 API.conn.Close();
                 break;
             }
@@ -91,14 +92,14 @@ namespace pixel
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() != string.Empty)
+            // porque se puede hacer click en muchos lados
+            try
             {
-                string ip = API.ComandodbConSalida("SELECT ip FROM pixel WHERE id = " + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-                if (ip == string.Empty)
+                // si hacemos click en la x de eliminar
+                if (e.ColumnIndex == dataGridView1.ColumnCount-1)
                 {
-                    DialogResult dr = MessageBox.Show("El pixel que has seleccionado todavia no ha sido usado!" + Environment.NewLine + "Deseas eliminarlo de los registros?"
-                        , "[Pixel] - Informacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    DialogResult dr = MessageBox.Show("Pixel Seleccionado!" + Environment.NewLine + "Deseas eliminarlo de los registros?"
+                            , "[Pixel] - Informacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                     if (dr == DialogResult.Yes)
                     {
                         API.Comandodb("DELETE FROM pixel WHERE id = " + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -109,31 +110,56 @@ namespace pixel
 
                     }
                 }
-                else
+                // si no hacemos click en la x de eliminar
+                else if (dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() != string.Empty)
                 {
-                    string pais = API.ComandodbConSalida("SELECT pais FROM pixel WHERE id = " + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    string ciudad = API.ComandodbConSalida("SELECT ciudad FROM pixel WHERE id = " + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    string region = API.ComandodbConSalida("SELECT region FROM pixel WHERE id = " + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    string fecha = API.ComandodbConSalida("SELECT fechaleido FROM pixel WHERE id = " + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    string id = API.ComandodbConSalida("SELECT id FROM pixel WHERE id = " + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    string ip = API.ComandodbConSalida("SELECT ip FROM pixel WHERE id = " + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                    string mensaje = "------------------------" + Environment.NewLine +
-                                     "Información del Pixel" + Environment.NewLine +
-                                     "id " + id + Environment.NewLine +
-                                     "------------------------" + Environment.NewLine +
-                                     "IP: " + ip + Environment.NewLine +
-                                     "Abierto en fecha: " + fecha + Environment.NewLine +
-                                     "------------------------" + Environment.NewLine +
-                                     "IpInfo:" + Environment.NewLine +
-                                     "Pais: " + pais + Environment.NewLine +
-                                     "Region: " + region + Environment.NewLine +
-                                     "Ciudad: " + ciudad + Environment.NewLine +
-                                     "------------------------";
+                    if (ip == string.Empty)
+                    {
+                        DialogResult dr = MessageBox.Show("El pixel que has seleccionado todavia no ha sido usado!" + Environment.NewLine + "Deseas eliminarlo de los registros?"
+                            , "[Pixel] - Informacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                        if (dr == DialogResult.Yes)
+                        {
+                            API.Comandodb("DELETE FROM pixel WHERE id = " + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                            textBox1.Enabled = true;
+                            label2.Visible = true;
+                            linkLabel2.Visible = true;
+                            dataGridView1.Visible = false; label3.Visible = false;
 
-                    MessageBox.Show(mensaje, "[Pixel] - Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        string id = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        string pais = API.ComandodbConSalida("SELECT pais FROM pixel WHERE id = " + id);
+                        string ciudad = API.ComandodbConSalida("SELECT ciudad FROM pixel WHERE id = " + id);
+                        string region = API.ComandodbConSalida("SELECT region FROM pixel WHERE id = " + id);
+                        string fecha = API.ComandodbConSalida("SELECT fechaleido FROM pixel WHERE id = " + id);
+                        string mail = API.ComandodbConSalida("SELECT email FROM pixel WHERE id = " + id);
+
+                        string mensaje = "------------------------" + Environment.NewLine +
+                                         "Información del Pixel" + Environment.NewLine +
+                                         "id: " + id + Environment.NewLine +
+                                         "email: " + mail + Environment.NewLine +
+                                         "------------------------" + Environment.NewLine +
+                                         "IP: " + ip + Environment.NewLine +
+                                         "Abierto en fecha: " + fecha + Environment.NewLine +
+                                         "------------------------" + Environment.NewLine +
+                                         "IpInfo:" + Environment.NewLine +
+                                         "Pais: " + pais + Environment.NewLine +
+                                         "Region: " + region + Environment.NewLine +
+                                         "Ciudad: " + ciudad + Environment.NewLine +
+                                         "------------------------";
+
+                        MessageBox.Show(mensaje, "[Pixel] - Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
-            
+            catch (Exception ex) {
+                // aquí se llega cuando hay click en el nombre de las columnas
+                ; // no hacemos nada
+            }
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -160,9 +186,33 @@ namespace pixel
 
                 da.Fill(ds, "pixel");
                 dataGridView1.DataSource = ds.Tables[0];
+                anadirColumnaEliminar();
                 API.conn.Close();
                 break;
             }
         }
+
+        private void anadirColumnaEliminar()
+        {
+            // para que no sea posible ordenar las columnas
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            dataGridView1.Columns.Add("Columna Eliminar", "Eliminar");
+            // En la ultima fila no hay q poner nada, es la de editar nueva
+            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+            {
+                // ponemos una x en la celda
+                dataGridView1.Rows[i].Cells[dataGridView1.ColumnCount-1].Value = "X";
+            }
+            // estrechamos la columna
+            for (int i = 0; i < dataGridView1.ColumnCount; i++)
+            {
+                dataGridView1.Columns[dataGridView1.ColumnCount - 1].Width = 50;
+            }
+        }
+
     }
 }

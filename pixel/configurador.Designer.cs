@@ -58,9 +58,9 @@ namespace pixel
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(162, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(455, 110);
+            this.label1.Size = new System.Drawing.Size(443, 108);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Pixel v1.0\r\nConfiguración Inicial";
+            this.label1.Text = "Pixel v1.1\r\nConfiguración Inicial";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -198,7 +198,7 @@ namespace pixel
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(32, 452);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(753, 17);
+            this.label9.Size = new System.Drawing.Size(603, 16);
             this.label9.TabIndex = 14;
             this.label9.Text = "---------------------------------------------------------------------------------" +
     "--------------------------------------------------------------------";
@@ -208,7 +208,7 @@ namespace pixel
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(32, 126);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(753, 17);
+            this.label10.Size = new System.Drawing.Size(603, 16);
             this.label10.TabIndex = 15;
             this.label10.Text = "---------------------------------------------------------------------------------" +
     "--------------------------------------------------------------------";
@@ -264,7 +264,7 @@ namespace pixel
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(136, 305);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(310, 32);
+            this.label12.Size = new System.Drawing.Size(309, 32);
             this.label12.TabIndex = 20;
             this.label12.Text = "Archivos descargados!!";
             this.label12.Visible = false;

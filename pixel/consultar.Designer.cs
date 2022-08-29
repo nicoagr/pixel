@@ -101,7 +101,7 @@ namespace pixel
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(381, 91);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Pixel v1.0";
+            this.label2.Text = "Pixel v1.1";
             // 
             // linkLabel2
             // 
@@ -120,7 +120,7 @@ namespace pixel
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(227, 352);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(315, 17);
+            this.label3.Size = new System.Drawing.Size(296, 16);
             this.label3.TabIndex = 8;
             this.label3.Text = "(Doble Click en el registro para mas informacion)";
             // 
@@ -128,7 +128,7 @@ namespace pixel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 442);
+            this.ClientSize = new System.Drawing.Size(788, 438);
             this.ControlBox = false;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.linkLabel2);
